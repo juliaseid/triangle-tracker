@@ -7,6 +7,9 @@ function NaT(side1, side2, side3){
   else if ((side2 + side3)<=side1){
     NaT=true;
   } 
+  else if ((side1 + side3)<=side2){
+    NaT=true;
+  } 
   else {
     NaT=false;
   }
@@ -31,19 +34,19 @@ $(document).ready(function() {
     var side3 = parseInt($("input#side3").val());
 
     if (NaT(side1, side2, side3)===true) {
-      var text = "That won't make a triangle, because the sides can't reach each other!"
+      var text = "That won't make a triangle, because the sides can't reach each other!";
     }
     
     else if ((sidesSame(side1, side2)===true) && (sidesSame(side2, side3)===true) && (sidesSame(side1, side3)===true)) {
-      var text = "You made an equilateral triangle!  So even!"
+      var text = "You made an equilateral triangle!  So even!";
     }
 
     else if ((sidesSame(side1, side2)===true) || (sidesSame(side2, side3)===true) || (sidesSame(side1, side3)===true)) {
-      var text = "You made an isoceles triangle! Is it wide and flat or tall and narrow?"
+      var text = "You made an isoceles triangle! Is it wide and flat or tall and narrow?";
     }
 
     else {
-      var text = "You made a scalene triangle!  Way to think different!"
+      var text = "You made a scalene triangle!  Way to think different!";
     }
 
     $("#output").empty().append(text);
